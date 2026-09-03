@@ -1,0 +1,12 @@
+{
+  "project_name": "my-bot",
+  "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+  "bot_name": "{{ cookiecutter.project_slug }}",
+  "port": 8090,
+  "description": "Telegram bot",
+  "author": "ninelegsdog",
+  "use_tracing": "y",
+  "use_loki": "y",
+  "use_yookassa": "n",
+  "botkit_core_version": "0.6.0"
+}

@@ -1,0 +1,57 @@
+version: "3.8"
+services:
+  bot:
+    image: botkit-{{ cookiecutter.bot_name }}:1.0.0
+    ports:
+      - "127.0.0.1:{{ cookiecutter.port }}:{{ cookiecutter.port }}"
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      BOTKIT_DATABASE_URL: sqlite+aiosqlite:///data/app.db
+    user: 1001:1001
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp
+    volumes:
+      - bot-data:/app/data
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - botnet
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+          pids: 100
+        reservations:
+          cpus: "0.1"
+          memory: 64M
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+    networks:
+      - botnet
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 64M
+          pids: 50
+        reservations:
+          cpus: "0.05"
+          memory: 16M
+
+networks:
+  botnet:
+
+volumes:
+  bot-data:
