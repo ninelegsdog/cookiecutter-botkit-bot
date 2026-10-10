@@ -8,5 +8,5 @@
   "use_tracing": "y",
   "use_loki": "y",
   "use_yookassa": "n",
-  "botkit_core_version": "0.6.0"
+  "botkit_core_version": "0.8.2"
 }
