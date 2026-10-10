@@ -6,6 +6,5 @@
   "description": "Telegram bot",
   "author": "ninelegsdog",
   "use_tracing": "y",
-  "use_yookassa": "n",
   "botkit_core_version": "0.8.2"
 }
