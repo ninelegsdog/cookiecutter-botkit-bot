@@ -23,13 +23,14 @@ pytest -q
 docker compose up -d
 ```
 
-No secrets are generated: copy `.env.example` to `.env` and fill in `BOT_TOKEN`
-and `ADMIN_IDS` before the first run.
+No secrets are generated: copy `.env.example` to `.env` and fill in
+`BOTKIT_BOT_TOKEN` and `BOTKIT_ADMIN_IDS` before the first run.
 
 ## What you get
 
 ```text
 <project_slug>/
+├── .env.example         # env template (copy to .env)
 ├── bot.py               # entry point
 ├── Dockerfile
 ├── docker-compose.yml
@@ -59,7 +60,7 @@ webhook app, and ships with `pytest --cov-fail-under=70`, `ruff` and strict
 | `use_tracing`         | `y`            | Add the OpenTelemetry dependencies and tracer setup                     |
 | `use_loki`            | `y`            | Configure the Loki log handler                                          |
 | `use_yookassa`        | `n`            | Add the YooKassa payment provider dependency                            |
-| `botkit_core_version` | `0.6.0`        | Pinned `botkit-core` git tag the generated project installs             |
+| `botkit_core_version` | `0.8.2`        | Pinned `botkit-core` git tag the generated project installs             |
 
 ## Health and metrics
 
