@@ -62,7 +62,6 @@ webhook app, and ships with `pytest --cov-fail-under=70`, `ruff` and strict
 | `description`         | `Telegram bot` | One-line description, written into `pyproject.toml`                     |
 | `author`              | `ninelegsdog`  | `pyproject.toml` author                                                 |
 | `use_tracing`         | `y`            | Add the OpenTelemetry dependencies and tracer setup                     |
-| `use_yookassa`        | `n`            | Add the YooKassa payment provider dependency                            |
 | `botkit_core_version` | `0.8.2`        | Pinned `botkit-core` git tag the generated project installs             |
 
 ## Health and metrics
