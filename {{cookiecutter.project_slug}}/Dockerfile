@@ -21,5 +21,4 @@ COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/pytho
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --chown=botuser:botuser . .
 USER 1001:1001
-ARG PORT
 CMD ["python", "-m", "bot"]

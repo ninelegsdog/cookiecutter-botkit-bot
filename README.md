@@ -19,27 +19,31 @@ cd <project_slug>
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
+cp .env.example .env          # fill in TELEGRAM_BOT_TOKEN
 pytest -q
-docker compose up -d
+python -m bot                 # long polling; set WEBHOOK_URL to serve a webhook
 ```
 
 No secrets are generated: copy `.env.example` to `.env` and fill in
-`BOTKIT_BOT_TOKEN` and `BOTKIT_ADMIN_IDS` before the first run.
+`TELEGRAM_BOT_TOKEN` (and `ADMIN_IDS`) before the first run.
 
 ## What you get
 
 ```text
 <project_slug>/
 ├── .env.example         # env template (copy to .env)
-├── bot.py               # entry point
+├── bot.py               # entry point (webhook or long polling)
 ├── Dockerfile
 ├── docker-compose.yml
 ├── pyproject.toml       # deps, pytest, ruff, mypy (strict)
 ├── README.md            # project readme with placeholders filled in
 ├── src/
-│   └── core/            # the bot's own core package
+│   ├── __init__.py
+│   └── core/
+│       ├── __init__.py
+│       └── config.py    # Settings (flat env names)
 └── tests/
-    └── test_placeholder.py
+    └── test_config.py
 ```
 
 The generated project wires in [`botkit-core`](https://github.com/ninelegsdog/botkit-core)
@@ -58,7 +62,6 @@ webhook app, and ships with `pytest --cov-fail-under=70`, `ruff` and strict
 | `description`         | `Telegram bot` | One-line description, written into `pyproject.toml`                     |
 | `author`              | `ninelegsdog`  | `pyproject.toml` author                                                 |
 | `use_tracing`         | `y`            | Add the OpenTelemetry dependencies and tracer setup                     |
-| `use_loki`            | `y`            | Configure the Loki log handler                                          |
 | `use_yookassa`        | `n`            | Add the YooKassa payment provider dependency                            |
 | `botkit_core_version` | `0.8.2`        | Pinned `botkit-core` git tag the generated project installs             |
 

@@ -6,6 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "{{ cookiecutter.description }}"
+authors = [
+    { name = "{{ cookiecutter.author }}" },
+]
 requires-python = ">=3.12"
 dependencies = [
     "aiogram>=3.30",
@@ -24,6 +27,9 @@ dependencies = [
     "opentelemetry-exporter-otlp-proto-http>=1.44",{% endif %}
 ]
 
+[tool.setuptools.packages.find]
+include = ["src*"]
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8",
@@ -40,7 +46,12 @@ addopts = "-ra --strict-markers --cov=src --cov-branch --cov-report=term-missing
 
 [tool.ruff]
 line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "SIM"]
 
 [tool.mypy]
 python_version = "3.12"
 strict = true
+plugins = ["pydantic.mypy"]
