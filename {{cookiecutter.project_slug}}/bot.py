@@ -28,7 +28,6 @@ from botkit_core.middleware.logging import LoggingMiddleware
 from botkit_core.sentry import init_sentry
 from botkit_core.tracing import TracingMiddleware, setup_tracing
 from botkit_core.webhook import build_webhook_app
-
 from src.core.config import Settings
 
 logger = logging.getLogger(__name__)
