@@ -1,0 +1,25 @@
+# Lint configuration for a cookiecutter template.
+#
+# The template body is Jinja first and Python second: `{{ cookiecutter.port }}`
+# is substituted before the file is ever valid Python. Linting the raw template
+# therefore reports every substitution as an undefined name, which trains the
+# reader to ignore the linter entirely.
+#
+# Only F821 is suppressed, and only for the template body. Import order, line
+# length and everything else still apply there -- including the I001 this file
+# was added to fix.
+#
+# The `[{][{]` / `[}][}]` around the directory name is not decoration. `{` and
+# `}` are glob metacharacters, so the literal name has to be written as
+# character classes; written plainly, the pattern either fails to parse or
+# silently matches nothing and the ignore appears to have no effect.
+line-length = 120
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[lint.per-file-ignores]
+# "**/" matters: ruff matches this against the path relative to the directory
+# holding this config file.
+"**/[{][{]cookiecutter.project_slug[}][}]/**" = ["F821"]

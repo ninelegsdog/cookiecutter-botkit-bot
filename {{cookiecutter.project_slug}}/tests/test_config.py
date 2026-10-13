@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-
 from src.core.config import Settings, parse_admin_ids
 
 
