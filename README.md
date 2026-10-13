@@ -2,6 +2,7 @@
 
 
 [![License](https://img.shields.io/github/license/ninelegsdog/cookiecutter-botkit-bot.svg)](LICENSE)
+[![CI](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml)
 
 ## Contents
 
