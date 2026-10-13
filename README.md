@@ -1,5 +1,19 @@
 # cookiecutter-botkit-bot
 
+
+[![License](https://img.shields.io/github/license/ninelegsdog/cookiecutter-botkit-bot.svg)](LICENSE)
+
+## Contents
+
+- [Quick start](#quick-start)
+- [What you get](#what-you-get)
+- [Template variables](#template-variables)
+- [Health and metrics](#health-and-metrics)
+- [License](#license)
+
+> A **template**, not a project. Nothing here runs; the artifacts this repository
+> ships land in the repository you generate. Running a test against the template
+> itself would test the template, not the bot.
 A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a new
 [BotKit](https://github.com/ninelegsdog/botkit-core) Telegram bot — the same `src`
 layout, tests, `Dockerfile` and `docker-compose.yml` that the nine production bots
