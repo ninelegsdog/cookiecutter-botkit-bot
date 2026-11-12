@@ -1,8 +1,7 @@
 # cookiecutter-botkit-bot
 
 
-[![License](https://img.shields.io/github/license/ninelegsdog/cookiecutter-botkit-bot.svg)](LICENSE)
-[![CI](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/ninelegsdog/cookiecutter-botkit-bot.svg)](LICENSE) [![CI](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/ninelegsdog/cookiecutter-botkit-bot/actions/workflows/ci.yml) [![Python](https://img.shields.io/badge/python-3.12-339933.svg)](#quick-start)
 
 ## Contents
 
